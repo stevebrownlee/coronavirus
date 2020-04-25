@@ -116,6 +116,7 @@ Your next task is to create HTML representations of the people who have been tes
 
 In the `main.js` module, invoke the `PatientList` component function. Make sure your web server is running, and then visit http://localhost:8080 and you should see your list of diagnosed patient. It should look similiar to this.
 
+![](./coronavirus-patients.png)
 
 Then look at your terminal window that is running the tests and make sure that the following tests pass.
 
