@@ -34,18 +34,16 @@ Since you cloned an official NSS repository, you don't have permissions to push 
 1. The `testPerson` function must accept the following values as input _(i.e. it needs parameters)_, in the following order.
     1. First name of the person being tested (e.g. "Kelly", "Peter")
     1. Age of the person (e.g. 31, 65)
-1. The `testPerson` function must return an object with the following properties on it.
+    1. Person's temperature (e.g. 98, 103)
+1. The `testPerson` function must return an object with the following properties on it. The `id` value should be incremented by 1 each time a person is tested.
     1. `firstName` whose value comes from the parameter
     1. `age` whose value comes from the parameter
-    1. `temperature` whose value is the following code which will generate a random number between 98 and 107.
-        ```js
-        Math.ceil(Math.random()*9)+97
-        ```
+    1. `temperature` whose value comes from the parameter
+    1. `id` whose value comes from the incremented module variable
 
 #### Checking Your Work
 
 In the `main.js` module, invoke the `testPerson` function and provide the required values as arguments. Store the object that gets returned into a variable, and then use `console.log()` to view the object.
-
 
 Also look at your terminal window that is running the tests and make sure that the `Person has been tested` test is passing.
 
@@ -53,10 +51,11 @@ Once you have it working, test 5 people in the `main.js` module.
 
 **THEN PUSH YOUR CODE TO GITHUB**
 
-## Doctor Consultation
+## Clinical Consultation
 
 1. Define a `scripts/Clinic.js` module.
-1. Define and export a variable in the module that will store the people objects after they have been diagnosed in the clinic. It's initial value should be an empty array.
+1. Define a variable in the module that will store the people objects after they have been diagnosed in the clinic. It's initial value should be an empty array.
+1. Define and export a function named `usePatients` which should return the array of diagnosed patients.
 1. Define and export a function named `diagnose` that is responsible providing a diagnosis for a tested person.
 1. The function must accept the following values as input _(i.e. it needs parameters)_, in the following order.
     1. An object representing a person who was tested with the `testPerson` function.
@@ -66,6 +65,7 @@ Once you have it working, test 5 people in the `main.js` module.
     1. If the person's temperature is above 101 and the number of days the person has been symptomatic is greater than, or equal to, 4 then `infected` property must have a value of `true`.
     1. Otherwise, the `infected` property must have a value of `false`.
 1. After both of the new properties have been added, add the person to the array of diagnosed people. Recall which method is used to add new items to an array.
+1. Finally, the function should return the augmented object.
 
 #### Checking Your Work
 
@@ -75,9 +75,10 @@ To check your work, make sure that at least one of the people is infected by pro
 
 Also look at your terminal window that is running the tests and make sure that the following tests pass.
 
-* `Person has been diagnosed`
-* `Person with positive symptoms is diagnosed as infected`
-* `Person with negative symptoms is diagnosed as not infected`
+* `Person is diagnosed`
+* `Person is infected when temperature and symptomatic days are too high`
+* `Person is not infected when days are too few`
+* `Person is not infected when no conditions met`
 
 **THEN PUSH YOUR CODE TO GITHUB**
 
@@ -102,7 +103,7 @@ Your next task is to create HTML representations of the people who have been tes
         <div class="patient__properties">
             <p>Age: 32</p>
             <p>Temperature: 101</p>
-            <p>Days symptomatic: 2</p>
+            <p>Diagnosed: Yes</p>
         </div>
         <div class="patient_diagnosis">
             Infected: No

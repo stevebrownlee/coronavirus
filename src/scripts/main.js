@@ -1,16 +1,24 @@
 // Imports go first
+import { testPerson } from "./TestFacility.js"
+import { diganose, usePatients } from "./Clinic.js"
+import { PatientList } from "./PatientList.js"
 
 
 
-// Make 5 pieces of pottery at the wheel
-let mug = makePottery()
+// Test 5 people at the testing facility
+let doug = testPerson("Doug", 65, 102)
+let mary = testPerson("Mary", 37, 100)
+let candace = testPerson("Candace", 42, 103)
 
 
-// Fire each piece of pottery in the kiln
+// Diagnose each person at the clinic
+doug = diganose(doug, 4)
+mary = diganose(mary, 2)
+candace = diganose(candace, 2)
+
+const patients = usePatients()
+console.log(patients)
 
 
-// Determine which ones should be sold, and their price
-
-
-// Invoke the component function that renders the HTML list
-
+// Invoke the component function that renders the HTML list of patients
+PatientList()
