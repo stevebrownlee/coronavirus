@@ -29,7 +29,7 @@ Since you cloned an official NSS repository, you don't have permissions to push 
 ## Testing the Public
 
 1. Create a `scripts/TestFacility.js` module.
-1. Define a variable in the module to have the value of the primary key for each piece of pottery. It should have an initial value of 1.
+1. Define a variable in the module to have the hold of the primary key for each piece of pottery _(i.e. the `id` property)_. It should have an initial value of 1.
 1. Define and export a function named `testPerson`.
 1. The `testPerson` function must accept the following values as input _(i.e. it needs parameters)_, in the following order.
     1. First name of the person being tested (e.g. "Kelly", "Peter")
@@ -47,75 +47,78 @@ Since you cloned an official NSS repository, you don't have permissions to push 
 In the `main.js` module, invoke the `testPerson` function and provide the required values as arguments. Store the object that gets returned into a variable, and then use `console.log()` to view the object.
 
 
-Also look at your terminal window that is running the tests and make sure that the `Pottery object is created with correct properties` test is passing.
+Also look at your terminal window that is running the tests and make sure that the `Person has been tested` test is passing.
 
-Once you have it working, make 5 pieces of pottery in `main.js`.
+Once you have it working, test 5 people in the `main.js` module.
 
 **THEN PUSH YOUR CODE TO GITHUB**
 
 ## Doctor Consultation
 
-1. Define a `scripts/Kiln.js` module.
-1. Define and export a function named `firePottery` that is responsible for acting as a kiln.
-1. The function must accept the following values as input _(i.e. it needs parameters)_, in the following order. If you don't remember, you can easily [add new properties to objects in JavaScript](https://www.dyn-web.com/tutorials/object-literal/properties.php).
-    1. An object representing a piece of pottery that was made at the wheel in the `makePottery` function.
-    1. A number specifying the firing temperature of the kiln.
-1. The function must add a new property of `fired` with the value of `true` to the object.
-1. The function must add a new property of `cracked` to the object.
-    1. If the temperature of the kiln is above 2200 degrees then `cracked` property must have a value of `true`.
-    1. If the temperature of the kiln is at, or below,  2200 degrees then `cracked` property must have a value of `false`.
-1. After both of the new properties have been added, return the augmented object.
+1. Define a `scripts/Clinic.js` module.
+1. Define and export a variable in the module that will store the people objects after they have been diagnosed in the clinic. It's initial value should be an empty array.
+1. Define and export a function named `diagnose` that is responsible providing a diagnosis for a tested person.
+1. The function must accept the following values as input _(i.e. it needs parameters)_, in the following order.
+    1. An object representing a person who was tested with the `testPerson` function.
+    1. A number specifying how many days the person has been symptomatic.
+1. The function must add a new property of `diagnosed` with the value of `true` to the object. If you don't remember, you can easily [add new properties to objects in JavaScript](https://www.dyn-web.com/tutorials/object-literal/properties.php).
+1. The function must also add a new property of `infected` to the object.
+    1. If the person's temperature is above 101 and the number of days the person has been symptomatic is greater than, or equal to, 4 then `infected` property must have a value of `true`.
+    1. Otherwise, the `infected` property must have a value of `false`.
+1. After both of the new properties have been added, add the person to the array of diagnosed people. Recall which method is used to add new items to an array.
 
 #### Checking Your Work
 
-In the `main.js` module, invoke the `firePottery` function for each of the 5 pieces of pottery you created. Ensure you provide the required values as arguments. Store the object that gets returned into a variable, and then use `console.log()` to view the objects and make sure it has the right properties on each.
+In the `main.js` module, invoke the `diagnose` function for each of the 5 people who were test. Ensure you provide the required values as arguments. Store the object that gets returned into a variable, and then use `console.log()` to view the objects and make sure it has the right properties on each.
 
-To check your work, make sure that at least one of your pieces of pottery is fired at a temperature that is too high.
+To check your work, make sure that at least one of the people is infected by providing a temperature that is too high, and a number symptomatic days being 4 or greater.
 
 Also look at your terminal window that is running the tests and make sure that the following tests pass.
 
-* `Pottery marked as fired after going in the kiln`
-* `Pottery object is cracked when temperature is above 2200`
-* `Pottery object is uncracked when temperature is below 2200`
+* `Person has been diagnosed`
+* `Person with positive symptoms is diagnosed as infected`
+* `Person with negative symptoms is diagnosed as not infected`
 
 **THEN PUSH YOUR CODE TO GITHUB**
 
 ## Display the Catalog
 
-Your next task is to create HTML representations of the pottery you want to sell at the craft fair and display them on the DOM. Then you will track which ones you sell.
+Your next task is to create HTML representations of the people who have been tested and display them on the DOM.
 
 ### Define DOM Target
 
 1. Create an `<article>` element in the `index.html` file.
-1. The article element must have a class of `infected`.
+1. The article element must have a class of `patients`.
 
-### Create Pottery HTML
+### Create Patient HTML
 
-1. Create a `scripts/PotteryList.js` module.
-1. Define and export a `PotteryList` function.
-1. The `PotteryList` function must get the items to be sold from the `PotteryCatalog.js` module.
-1. The `PotteryList` function must convert each object in the array to an HTML representation string. Use the following template to generate the representations.
+1. Create a `scripts/PatientList.js` module.
+1. Define and export a `PatientList` function.
+1. The `PatientList` function must import that array of patients from the from the `Clinic.js` module.
+1. The `PatientList` function must convert each object in the array to an HTML representation string. Use the following template to generate the representations.
     ```html
-    <section class="pottery" id="pottery--1">
-        <h2 class="pottery__shape">Mug</h2>
-        <div class="pottery__properties">
-            Item weighs 3 grams and is 6 cm in height
+    <section class="patient" id="patient--1">
+        <h2 class="patient__name">Doug</h2>
+        <div class="patient__properties">
+            <p>Age: 32</p>
+            <p>Temperature: 101</p>
+            <p>Days symptomatic: 2</p>
         </div>
-        <div class="pottery__price">
-            Price is $20
+        <div class="patient_diagnosis">
+            Infected: No
         </div>
     </section>
     ```
-1. Once all pottery objects have been converted to HTML representation strings, update the inner HTML of the `<article>` element with that string.
+1. Once all patient objects have been converted to HTML representation strings, append the inner HTML of the `<article>` element you created above with that string.
 
 #### Checking Your Work
 
-In the `main.js` module, invoke the `PotteryList` component function. Make sure your web server is running, and then visit http://localhost:8080 and you should see your uncracked pottery displayed. It should look similiar to this.
+In the `main.js` module, invoke the `PatientList` component function. Make sure your web server is running, and then visit http://localhost:8080 and you should see your list of diagnosed patient. It should look similiar to this.
 
 
 Then look at your terminal window that is running the tests and make sure that the following tests pass.
 
-* `Pottery is rendered to DOM`
+* `Patients are rendered to DOM`
 
 **THEN PUSH YOUR CODE TO GITHUB**
 
