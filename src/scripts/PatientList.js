@@ -9,10 +9,10 @@ export const PatientList = () => {
             <div class="patient__properties">
                 <p>Age: ${p.age}</p>
                 <p>Temperature: ${p.temperature}</p>
-                <p>Diagnosed: ${p.diagnosed ? "Yes" : "No"}</p>
+                <p>Diagnosed: ${p.diagnosed}</p>
             </div>
             <div class="patient_diagnosis">
-                Infected: ${p.infected ? "Yes" : "No"}
+                Infected: ${p.infected}
             </div>
         </section>
         `).join("")

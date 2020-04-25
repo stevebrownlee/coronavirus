@@ -96,17 +96,17 @@ Your next task is to create HTML representations of the people who have been tes
 1. Create a `scripts/PatientList.js` module.
 1. Define and export a `PatientList` function.
 1. The `PatientList` function must import that array of patients from the from the `Clinic.js` module.
-1. The `PatientList` function must convert each object in the array to an HTML representation string. Use the following template to generate the representations.
+1. The `PatientList` function must convert each object in the array to an HTML representation string. Use the following template to generate the representations. Recall the `${}` syntax for interpolating JavaScript variables into string templates.
     ```html
     <section class="patient" id="patient--1">
         <h2 class="patient__name">Doug</h2>
         <div class="patient__properties">
             <p>Age: 32</p>
             <p>Temperature: 101</p>
-            <p>Diagnosed: Yes</p>
+            <p>Diagnosed: true</p>
         </div>
         <div class="patient_diagnosis">
-            Infected: No
+            Infected: false
         </div>
     </section>
     ```

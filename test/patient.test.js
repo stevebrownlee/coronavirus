@@ -89,7 +89,7 @@ test('Patients are rendered to DOM', async () => {
     section = section.replace(/\s{2,}/g, "")
 
     try {
-        expect(section).toBe(`<section class="patient" id="patient--1"><h2 class="patient__name">Doug</h2><div class="patient__properties"><p>Age: 65</p><p>Temperature: 102</p><p>Diagnosed: Yes</p></div><div class="patient_diagnosis">Infected: Yes</div></section><section class="patient" id="patient--2"><h2 class="patient__name">Mary</h2><div class="patient__properties"><p>Age: 37</p><p>Temperature: 100</p><p>Diagnosed: Yes</p></div><div class="patient_diagnosis">Infected: No</div></section><section class="patient" id="patient--3"><h2 class="patient__name">Candace</h2><div class="patient__properties"><p>Age: 42</p><p>Temperature: 103</p><p>Diagnosed: Yes</p></div><div class="patient_diagnosis">Infected: No</div></section>`);
+        expect(section).toBe(`<section class="patient" id="patient--1"><h2 class="patient__name">Doug</h2><div class="patient__properties"><p>Age: 65</p><p>Temperature: 102</p><p>Diagnosed: true</p></div><div class="patient_diagnosis">Infected: true</div></section><section class="patient" id="patient--2"><h2 class="patient__name">Mary</h2><div class="patient__properties"><p>Age: 37</p><p>Temperature: 100</p><p>Diagnosed: true</p></div><div class="patient_diagnosis">Infected: false</div></section><section class="patient" id="patient--3"><h2 class="patient__name">Candace</h2><div class="patient__properties"><p>Age: 42</p><p>Temperature: 103</p><p>Diagnosed: true</p></div><div class="patient_diagnosis">Infected: false</div></section>`);
     }
     catch (error) {
         throw error
