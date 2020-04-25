@@ -99,6 +99,3 @@ test('Patients are rendered to DOM', async () => {
     }
 
 })
-
-
-
