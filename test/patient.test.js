@@ -3,7 +3,6 @@ import { diganose } from "../src/scripts/Clinic.js"
 
 
 let person = null
-// const fetch = jest.fn(() => Promise.resolve())
 
 describe('Person is tested and has an identifier', () => {
     beforeAll(() => {
