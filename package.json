@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest --verbose --watchAll"
+    "test": "jest --verbose --watchAll --json --outputFile=./report.jsonp"
   },
   "repository": {
     "type": "git",

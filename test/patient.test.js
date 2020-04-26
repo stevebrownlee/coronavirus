@@ -49,21 +49,6 @@ describe('Testing a patient with high temperature but not symptomatic long enoug
     })
 })
 
-describe('Testing a patient with low temperature and not symptomatic long enough', () => {
-    beforeAll(() => {
-        person = testPerson("Doug", 65, 99)
-        person = diganose(person, 2)
-    })
-
-    test('Person is diagnosed', () => {
-        expect(person.diagnosed).toBe(true)
-    })
-
-    test('Person is not infected when no conditions met', () => {
-        expect(person.infected).toBe(false)
-    })
-})
-
 const puppeteer = require("puppeteer")
 
 test('Patients are rendered to DOM', async () => {
@@ -98,20 +83,4 @@ test('Patients are rendered to DOM', async () => {
     }
 
 })
-
-describe('Testing a person with low temperature and not symptomatic long enough', () => {
-    beforeAll(() => {
-        person = testPerson("Doug", 65, 99)
-        person = diganose(person, 2)
-    })
-
-    test('Person is diagnosed', () => {
-        expect(person.diagnosed).toBe(true)
-    })
-
-    test('Person is not infected when no conditions met', () => {
-        expect(person.infected).toBe(false)
-    })
-})
-
 
