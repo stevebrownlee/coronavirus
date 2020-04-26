@@ -1,0 +1,12 @@
+{
+    "reporters": [
+        "default",
+        [
+            "./node_modules/jest-html-reporter",
+            {
+                "pageTitle": "Coronavirus Clinic Report",
+                "outputPath": "./src/report.html"
+            }
+        ]
+    ]
+}

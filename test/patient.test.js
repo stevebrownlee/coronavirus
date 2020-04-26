@@ -3,6 +3,7 @@ import { diganose } from "../src/scripts/Clinic.js"
 
 
 let person = null
+// const fetch = jest.fn(() => Promise.resolve())
 
 describe('Person is tested and has an identifier', () => {
     beforeAll(() => {
@@ -11,9 +12,7 @@ describe('Person is tested and has an identifier', () => {
     })
 
     test('Person has correct properties', () => {
-        expect(
-            person
-        )
+        expect( person )
             .toMatchObject(
                 { firstName: "Doug", age: 65, temperature: 102, id: 1 }
             )
@@ -81,7 +80,7 @@ test('Patients are rendered to DOM', async () => {
     })
     const page = await browser.newPage();
     await page.goto('http://localhost:8080');
-    await page.waitForSelector('.patients')
+    await page.waitForSelector('.patient')
 
     let section = await page.$eval('.patients', _ => _.innerHTML)
 
@@ -100,5 +99,19 @@ test('Patients are rendered to DOM', async () => {
 
 })
 
+describe('Testing a person with low temperature and not symptomatic long enough', () => {
+    beforeAll(() => {
+        person = testPerson("Doug", 65, 99)
+        person = diganose(person, 2)
+    })
+
+    test('Person is diagnosed', () => {
+        expect(person.diagnosed).toBe(true)
+    })
+
+    test('Person is not infected when no conditions met', () => {
+        expect(person.infected).toBe(false)
+    })
+})
 
 
